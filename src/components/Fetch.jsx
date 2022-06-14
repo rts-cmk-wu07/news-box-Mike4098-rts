@@ -11,7 +11,6 @@ const Fetchfunction = () => {
             
                 const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${process.env.REACT_APP_ARTICLES_API_KEY}`)
                 const articles = await res.json()
-                console.log(articles);
                 setArticles(articles.response.docs)
         } catch (error) {
             console.error(error);
