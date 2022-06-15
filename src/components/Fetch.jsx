@@ -27,7 +27,7 @@ const Fetchfunction = () => {
                     <article key={_id}>
                         <h2>{main}</h2>
                         <h4>{abstract}</h4>
-                        <a href={web_url} target="_blank">Click to read article</a>
+                        <a href={web_url} target="_blank" rel="noreferrer">Click to read article</a>
                         <p>{lead_paragraph}</p>
                         <ul>
                             <li>{original}</li>
