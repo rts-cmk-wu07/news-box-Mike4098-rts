@@ -1,0 +1,29 @@
+:root{
+    --primary-heading-text: 30px;
+    --seconday-heading-text: 24px;
+    --section-header-text:18px;
+    --bold-text: bold;
+    --button-text: 14px;
+    --card-title: 15px;
+    --card-body-small: 14px;
+
+    --sage: #87BCBF;
+    --rust: #D97D54;
+    --drab: #324755;
+    --danger: #D95454;
+
+    --onyx: #1B1C20;
+    --slate: #6E8CA0;
+    --snow: #ffffff;
+
+    --ice: #F0F3F4;
+    --fossil: #C8D1D3;
+    --sand: #B9B0A2;
+
+    
+}
+
+
+body{
+    margin: 0;
+}
