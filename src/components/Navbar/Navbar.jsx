@@ -35,7 +35,7 @@ const Navbar = () => {
             <nav className="navbar" css={style.nav}>
                 <button css={style.button}>Archive</button>
                 <h1 css={style.h1}>News box</h1>
-                <button css={style.button}>Settings</button>
+                <button css={style.button} type="submit">Settings</button>
             </nav>
         </div>
      );

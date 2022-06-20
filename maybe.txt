@@ -1,0 +1,7 @@
+    <ul>
+                            <li>{original}</li>
+                            <li>{news_desk}</li>
+                            <li>{section_name}</li>
+                            <li>{word_count}</li>
+                        </ul> 
+                           <p>{lead_paragraph}</p>

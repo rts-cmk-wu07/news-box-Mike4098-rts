@@ -1,44 +1,53 @@
-import React, {useState, useEffect} from "react";
+/** @jsxImportSource @emotion/react */
 
-const Fetchfunction = () => {
-    const [ articles, setArticles] = useState([])
-    const [term, setTerm] = useState('everything')
-    const [isloading, setIsloading] = useState(true)
+import { css } from "@emotion/react";
 
-    useEffect(() =>{
-        const fetchArticles = async() =>  {
-        try {
-            
-                const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${process.env.REACT_APP_ARTICLES_API_KEY}`)
-                const articles = await res.json()
-                setArticles(articles.response.docs)
-        } catch (error) {
-            console.error(error);
-        }
+
+
+
+const Fetchfunction = ({isloading, articles}) => {
+   
+    const style= {
+        article:css`
+            background-color: var(--snow);
+            border-bottom: 1px solid var(--onyx);
+            margin-top: 0em;
+            text-align: center;
+        `,
+        h2:css`
+        font-size: var(--seconday-heading-text);
+        font-weight: var(--bold-text);
+        text-align: left;
+        `,
+        abstract:css`
+        text-align: left;
+        font-size: var(--card-title);
+        width: 80%;
+        `,
+        h1:css`
+        text-align: center;
+        font-size: var(--primary-heading-text);
+        `
     }
-        fetchArticles()
-    }, [])
+   
     return ( 
         <div>
+           {isloading ? <h1 css={style.h1}>loading...</h1>: 
             <section>
             {articles.map((article) => {
-                const {abstract, headline:{main}, byline:{original}, lead_paragraph, news_desk, section_name, web_url, _id, word_count} = article
+                const {abstract, headline:{main},web_url, _id} = article
                 return (
-                    <article key={_id}>
-                        <h2>{main}</h2>
-                        <h4>{abstract}</h4>
+                    
+                    <article key={_id} css={style.article}>
+                        <h2 css={style.h2}>{main}</h2>
+                        <h4 css={style.abstract}>{abstract}</h4>
                         <a href={web_url} target="_blank" rel="noreferrer">Click to read article</a>
-                        <p>{lead_paragraph}</p>
-                        <ul>
-                            <li>{original}</li>
-                            <li>{news_desk}</li>
-                            <li>{section_name}</li>
-                            <li>{word_count}</li>
-                        </ul>
                     </article>
+                    
+                    
                 )
             })}
-            </section>
+            </section> }
         </div>
      );
 }
